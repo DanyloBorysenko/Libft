@@ -21,9 +21,12 @@ int main(void)
 	{
 		expected = tolower(c);
 		actual = ft_tolower(c);
-		printf("char '%c'\ntolower = %c\nft_tolower = %c\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
+		}
 	}
+	printf("Uppercase letters check compited\n");
 
 	// Test 2
 	setup("Lowercase letters a-z (should stay unchanged)");
@@ -31,9 +34,12 @@ int main(void)
 	{
 		expected = tolower(c);
 		actual = ft_tolower(c);
-		printf("char '%c'\nolower = %c\nft_tolower = %c\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
+		}
 	}
+	printf("Lowercase letters check compited\n");
 
 	// Test 3
 	setup("Digits 0-9 (should stay unchanged)");
@@ -41,9 +47,12 @@ int main(void)
 	{
 		expected = tolower(c);
 		actual = ft_tolower(c);
-		printf("char '%c'\ntolower = %c\nft_tolower = %c\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
+		}
 	}
+	printf("Digits letters check compited\n");
 
 	// Test 4
 	setup("Non-printable characters 0-31 (should stay unchanged)");
@@ -51,9 +60,12 @@ int main(void)
 	{
 		expected = tolower(c);
 		actual = ft_tolower(c);
-		printf("char %d:\ntolower = %d\nft_tolower = %d\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
+		}
 	}
+	printf("Non-printable characters check compited\n");
 
 	// Test 5
 	setup("Punctuation characters");
@@ -63,9 +75,12 @@ int main(void)
 		c = punct[i];
 		expected = tolower(c);
 		actual = ft_tolower(c);
-		printf("char '%c'\ntolower = %c\nft_tolower = %c\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
+		}
 	}
+	printf("Punctuation characters check compited\n");
 
 	return (0);
 }

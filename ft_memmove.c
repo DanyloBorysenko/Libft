@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 16:06:56 by danborys          #+#    #+#             */
-/*   Updated: 2025/10/05 14:59:53 by danborys         ###   ########.fr       */
+/*   Updated: 2025/10/28 11:57:05 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char *src1;
-	unsigned char *dest1;
-	size_t i;
+	unsigned char	*src1;
+	unsigned char	*dest1;
+	size_t			i;
 
 	src1 = (unsigned char *)src;
 	dest1 = (unsigned char *)dest;

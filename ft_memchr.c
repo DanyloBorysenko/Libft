@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 15:47:50 by danborys          #+#    #+#             */
-/*   Updated: 2025/10/05 16:02:45 by danborys         ###   ########.fr       */
+/*   Updated: 2025/10/28 11:04:35 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memchr(const void *src, int c, size_t n)
 {
-	size_t i;
-	unsigned char *src1;
+	size_t			i;
+	unsigned char	*src1;
 
 	src1 = (unsigned char *)src;
 	i = 0;

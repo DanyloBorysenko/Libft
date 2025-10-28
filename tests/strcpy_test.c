@@ -67,12 +67,12 @@ int main(void)
 	print_dest(dest);
 	printf("\nsrc : %s\n", src);
 	strcpy(dest, src);
-	printf("\nstrcpy returns : ");
+	printf("\nafter strcpy: ");
 	print_dest(dest);
 	bzero(dest, 15);
 	dest[11] = '*';
 	ft_strcpy(dest, src);
-	printf("\nft_strcpy returns : ");
+	printf("\nafter ft_strcpy : ");
 	print_dest(dest);
 	printf("\n");
 }

@@ -104,4 +104,5 @@ int main(void)
 	dest[11] = '*';
 	printf("ft_strncat returns : ");
 	print_dest(strncat(dest, src, ssize));
+	printf("\n");
 }

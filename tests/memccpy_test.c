@@ -21,7 +21,7 @@ int	main(void)
 
 	// Test 1
 	setup(dest, "Copy up to the '_' character");
-	printf("Original dest : %s\n", dest);
+	printf("Original dest : %s, src : %s, c : %c\n", dest, src, c);
 	memccpy(dest, src, c, n);
 	printf("standart memccpy function: %s\n", dest);
 	memset(dest, '*', 15);
@@ -39,8 +39,10 @@ int	main(void)
 	setup(dest, "Returned value must be null");
 	printf("Original dest : %s, src : %s , copy up to the 'a' character\n", dest, src);
 	printf("Standart memccpy returns: %s\n", (unsigned char *)memccpy(dest, src, 'a', n));
+	printf("dest : %s\n", dest);
 	memset(dest, '*', 15);
 	printf("ft_memccpy returns: %s\n", (unsigned char *)ft_memccpy(dest, src, 'a', n));
+	printf("dest : %s\n", dest);
 
 	// Test 4
 	setup(dest, "Copying empty string");

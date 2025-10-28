@@ -58,7 +58,7 @@ int	main(void)
 
 	// Test 6
 	setup(dest, "Copying src to the dest. Dest and src overlap");
-	printf("dest : %s, src : %s\n", src + 2, src);
+	printf("dest : %s, src : %s, n : %d\n", src + 2, src, 5);
 	memmove(src + 2, src, 5);
 	printf("standart memmove result is : %s\n", src);
 	char src1[11] = "1234567890";

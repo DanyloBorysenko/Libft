@@ -36,6 +36,7 @@ int	main(void)
 	{
 		printf("%d ", integers[i]);
 	}
+	
 	// Test 3
 	printf("\nTest 3\n");
 	char ptr[100] = "Hello world";

@@ -13,11 +13,12 @@ int	main(void)
 	printf("Original bzero function: %s\n", word);
 
 	ft_bzero(word + 1, 2 * sizeof(word[0]));
-	printf("Ft_bzero function: %s\n", word);
+	printf("ft_bzero function: %s\n", word);
 
 	// Test 2
 	printf("\nTest 2\n");
 	int numbers[3] = {1,2,3};
+	int numbers1[3] = {1,2,3};
 	printf("Original value:");
 	for (int i = 0; i < 3; i++)
 	{
@@ -31,11 +32,11 @@ int	main(void)
 		printf("%d ", numbers[i]);
 	}
 	printf("\n");
-	ft_bzero(numbers + 1, 2 * sizeof(numbers[0]));
+	ft_bzero(numbers1 + 1, 2 * sizeof(numbers1[0]));
 	printf("ft_bzero:");
 	for (int i = 0; i < 3; i++)
 	{
-		printf("%d ", numbers[i]);
+		printf("%d ", numbers1[i]);
 	}
 	printf("\n");
 }

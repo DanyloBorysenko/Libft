@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 08:39:00 by danborys          #+#    #+#             */
-/*   Updated: 2025/10/18 09:09:07 by danborys         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:55:56 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	if (*needle == '\0')
 	{
-		return (char *) haystack;
+		return ((char *) haystack);
 	}
 	i = 0;
 	while (i < len && haystack[i])

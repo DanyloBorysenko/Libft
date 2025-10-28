@@ -21,9 +21,12 @@ int main(void)
 	{
 		expected = toupper(c);
 		actual = ft_toupper(c);
-		printf("char: '%c'\ntoupper: '%c'\nft_toupper: '%c'\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char: '%c', toupper: '%c', ft_toupper: '%c'\n", c, expected, actual);
+		}
 	}
+	printf("Lowercase letters check complited\n");
 
 	// Test 2
 	setup("Uppercase letters 'A'-'Z'");
@@ -31,9 +34,12 @@ int main(void)
 	{
 		expected = toupper(c);
 		actual = ft_toupper(c);
-		printf("char: '%c'\ntoupper: '%c'\nft_toupper: '%c'\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char: '%c', toupper: '%c', ft_toupper: '%c'\n", c, expected, actual);
+		}
 	}
+	printf("Uppercase letters check complited\n");
 
 	// Test 3
 	setup("Digits and punctuation (non-letters)");
@@ -41,17 +47,20 @@ int main(void)
 	{
 		expected = toupper(c);
 		actual = ft_toupper(c);
-		printf("char: '%c'\ntoupper: '%c'\nft_toupper: '%c'\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char: '%c', toupper: '%c', ft_toupper: '%c'\n", c, expected, actual);
+		}
 	}
-
 	for (int c = 32; c < 48; c++) // symbols before '0'
 	{
 		expected = toupper(c);
 		actual = ft_toupper(c);
-		printf("char: '%c'\ntoupper: '%c'\nft_toupper: '%c'\n", c, expected, actual);
-		printf("\n");
+		if (expected != actual)
+		{
+			printf("char: '%c', toupper: '%c', ft_toupper: '%c'\n", c, expected, actual);
+		}
 	}
-
+	printf("Digits and punctuation check complited\n");
 	return (0);
 }
