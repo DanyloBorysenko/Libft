@@ -6,11 +6,11 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 16:06:56 by danborys          #+#    #+#             */
-/*   Updated: 2025/10/28 11:57:05 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/10 13:23:16 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

@@ -45,16 +45,16 @@ int	main(void)
 	// Test 4
 	setup(dest, "n equals to zero");
 	printf("Original dest : %s, src : %s, n : %d\n", dest, src, 0);
-	printf("Standart memmove returns: %s\n", (unsigned char *)memmove(dest, src, 0));
+	printf("Standart memmove returns: %s\n", (char *)memmove(dest, src, 0));
 	memset(dest, '*', 20);
-	printf("ft_memmove returns: %s\n", (unsigned char *)ft_memmove(dest, src, 0));
+	printf("ft_memmove returns: %s\n", (char *)ft_memmove(dest, src, 0));
 
 	// Test 5
 	setup(dest, "n less then src length");
 	printf("Original dest : %s, src : %s, n : %d\n", dest, src, 1);
-	printf("Standart memmove returns: %s\n", (unsigned char *)memmove(dest, src, 1));
+	printf("Standart memmove returns: %s\n", (char *)memmove(dest, src, 1));
 	memset(dest, '*', 20);
-	printf("ft_memmove returns: %s\n", (unsigned char *)ft_memmove(dest, src, 1));
+	printf("ft_memmove returns: %s\n", (char *)ft_memmove(dest, src, 1));
 
 	// Test 6
 	setup(dest, "Copying src to the dest. Dest and src overlap");

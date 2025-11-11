@@ -44,6 +44,6 @@ int	main(void)
 	setup("character is the last");
 	char src2[] = "Hello";
 	printf("src : '%s', c : '%c', n = %d\n", src2, 'o', 5);
-	printf("memchr returns : %s\n", (unsigned char *)memchr(src2, 'o', 5));
-	printf("ft_memchr returns : %s\n", (unsigned char *)ft_memchr(src2, 'o', 5));
+	printf("memchr returns : %s\n", (char *)memchr(src2, 'o', 5));
+	printf("ft_memchr returns : %s\n", (char *)ft_memchr(src2, 'o', 5));
 }

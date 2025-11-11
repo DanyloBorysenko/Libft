@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 08:41:37 by danborys          #+#    #+#             */
-/*   Updated: 2025/10/28 16:45:34 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/10 14:50:23 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	if (n == 0)
 		return (0);
 	i = 0;
-	while (i < n - 1 && s1[i] == s2[i] && s1[i] && s2[i])
+	while (i < n && s1[i] == s2[i] && s1[i] && s2[i])
 	{
 		i++;
 	}
+	if (i == n)
+		return (0);
 	return (s1[i] - s2[i]);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 16:18:13 by danborys          #+#    #+#             */
-/*   Updated: 2025/10/28 15:42:50 by danborys         ###   ########.fr       */
+/*   Created: 2025/11/10 14:53:49 by danborys          #+#    #+#             */
+/*   Updated: 2025/11/10 15:11:47 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,20 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	len;
+	size_t	i;
 
-	len = ft_strlen(s);
-	return ((char *)ft_memchr(s, c, len + 1));
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (unsigned char) c)
+		{
+			return ((char *)&s[i]);
+		}
+		i++;
+	}
+	if (s[i] == (unsigned char)c)
+	{
+		return ((char *)&s[i]);
+	}
+	return (NULL);
 }

@@ -20,7 +20,14 @@ int main(void)
     {
         expected = isalpha(c);
         actual = ft_isalpha(c);
-        printf("char '%c': isalpha = %d, ft_isalpha = %d\n", c, expected, actual);
+		if (expected != actual)
+		{
+			printf("char '%c': isalpha = %d, ft_isalpha = %d\n", c, expected, actual);
+		} 
+		else
+		{
+			printf("OK\n");
+		}
     }
 
     // Test 2: Lowercase letters
@@ -29,7 +36,10 @@ int main(void)
     {
         expected = isalpha(c);
         actual = ft_isalpha(c);
-        printf("char '%c': isalpha = %d, ft_isalpha = %d\n", c, expected, actual);
+		if (expected != actual)
+		{
+			printf("char '%c': isalpha = %d, ft_isalpha = %d\n", c, expected, actual);
+		} 
     }
 
     // Test 3: Digits
@@ -38,7 +48,10 @@ int main(void)
     {
         expected = isalpha(c);
         actual = ft_isalpha(c);
-        printf("char '%c': isalpha = %d, ft_isalpha = %d\n", c, expected, actual);
+		if (expected != actual)
+		{
+			printf("char '%c': isalpha = %d, ft_isalpha = %d\n", c, expected, actual);
+		} 
     }
 
     // Test 4: Punctuation
@@ -48,7 +61,10 @@ int main(void)
     {
         expected = isalpha(punct[i]);
         actual = ft_isalpha(punct[i]);
-        printf("char '%c': isalpha = %d, ft_isalpha = %d\n", punct[i], expected, actual);
+		if (expected != actual)
+		{
+			printf("char '%c': isalpha = %d, ft_isalpha = %d\n", punct[i], expected, actual);
+		} 
     }
 
     // Test 5: Non-printable characters
@@ -57,14 +73,19 @@ int main(void)
     {
         expected = isalpha(c);
         actual = ft_isalpha(c);
-        printf("ASCII %d: isalpha = %d, ft_isalpha = %d\n", c, expected, actual);
+        if (expected != actual)
+		{
+			printf("ASCII %d: isalpha = %d, ft_isalpha = %d\n", c, expected, actual);
+		}
     }
 
     // Test 6: DEL character
     setup("DEL character (ASCII 127)");
     expected = isalpha(127);
     actual = ft_isalpha(127);
-    printf("ASCII 127: isalpha = %d, ft_isalpha = %d\n", expected, actual);
-
+	if (expected != actual)
+		{
+			 printf("ASCII 127: isalpha = %d, ft_isalpha = %d\n", expected, actual);
+		} 
     return 0;
 }

@@ -1,5 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
+#include <strings.h>
+#include <bsd/string.h>
 
 void setup(char *info, char *dest)
 {

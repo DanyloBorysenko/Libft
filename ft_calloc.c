@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 09:58:39 by danborys          #+#    #+#             */
-/*   Updated: 2025/10/28 10:54:04 by danborys         ###   ########.fr       */
+/*   Created: 2025/11/11 10:17:14 by danborys          #+#    #+#             */
+/*   Updated: 2025/11/11 11:02:07 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "limits.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*dest1;
-	unsigned char	*src1;
-	size_t			i;
-
-	dest1 = (unsigned char *)dest;
-	src1 = (unsigned char *)src;
-	i = 0;
-	while (i < n)
-	{
-		dest1[i] = src1[i];
-		if (src1[i] == (unsigned char)c)
-			return (dest1 + i + 1);
-		i++;
-	}
-	return (NULL);
+	void	*ptr;
+	size_t	count;
+	
+	if (size != 0 && nmemb > __SIZE_MAX__ / size)
+		return (NULL);
+	count = nmemb * size;
+	ptr = malloc(count);
+	if (!ptr)
+		return (NULL);
+	return ( ft_memset(ptr, 0, count));
 }
