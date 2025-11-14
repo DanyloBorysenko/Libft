@@ -21,11 +21,11 @@ int main(void)
 	// ----------------------------
 	// Test 1: Normal case
 	// ----------------------------
-	s1 = "()He.. llo, world!";
+	s1 = "() Hello world! ()";
 	set = "., ()!";
 	setup("Normal case");
 	printf("s1 : \"%s\", set : \"%s\"\n", s1, set);
-	expected = "Helloworld";
+	expected = "Hello world";
 	actual = ft_strtrim(s1, set);
 	printf("expected : \"%s\"\nactual   : \"%s\"\n", expected, actual);
 	free(actual);
@@ -64,6 +64,9 @@ int main(void)
 	expected = "Hello";
 	actual = ft_strtrim(s1, set);
 	printf("expected : \"%s\"\nactual   : \"%s\"\n", expected, actual);
+	printf("Function must return duplicate str\n");
+	printf("Original pointer is %p\n", s1);
+	printf("returned value pointer is %p\n", actual);
 	free(actual);
 
 	// ----------------------------
@@ -138,5 +141,16 @@ int main(void)
 	printf("expected : \"%s\"\nactual   : \"%s\"\n", expected, actual);
 	free(actual);
 
+	// ----------------------------
+	// Test 11: Only one char should stay
+	// ----------------------------
+	s1 = "-- a --";
+	set = "- ";
+	setup("Only one char should stay");
+	printf("s1 : \"%s\", set : \"%s\"\n", s1, set);
+	expected = "a";
+	actual = ft_strtrim(s1, set);
+	printf("expected : \"%s\"\nactual   : \"%s\"\n", expected, actual);
+	free(actual);
 	return 0;
 }
