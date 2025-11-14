@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 12:34:17 by danborys          #+#    #+#             */
-/*   Updated: 2025/11/14 11:36:35 by danborys         ###   ########.fr       */
+/*   Created: 2025/11/14 13:43:42 by danborys          #+#    #+#             */
+/*   Updated: 2025/11/14 15:16:53 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	s_len;
-	char	*ptr;
+t_list *ft_lstnew_bonus(void *content) {
+	t_list *p;
 
-	if (s == NULL)
+	p = malloc(sizeof(t_list));
+	if (!p)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
-		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
-	ptr = malloc(len + 1);
-	if (!ptr)
-		return (NULL);
-	ft_strlcpy(ptr, s + start, len + 1);
-	return (ptr);
+	p->content = content;
+	p->next = NULL;
+	return (p);
 }

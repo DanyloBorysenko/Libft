@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:11:52 by danborys          #+#    #+#             */
-/*   Updated: 2025/11/13 16:53:09 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/14 11:33:13 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static int	get_char_count(long n)
 	return (char_count);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	long		nb;
+	long	nb;
 	char	*ptr;
 	int		char_count;
 

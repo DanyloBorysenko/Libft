@@ -105,32 +105,9 @@ int main(void)
 	printf("expected : \"%s\"\nactual   : \"%s\"\n", expected, actual);
 	free(actual);
 
-	// ----------------------------
-	// Test 8: NULL s1
-	// ----------------------------
-	s1 = NULL;
-	set = " ";
-	setup("NULL s1");
-	actual = ft_strtrim(s1, set);
-	expected = NULL;
-	printf("s1 : %p, set : \"%s\"\n", (void *)s1, set);
-	printf("expected : %p\nactual   : %p\n", (void *)expected, (void *)actual);
-	// no free for NULL
 
 	// ----------------------------
-	// Test 9: NULL set
-	// ----------------------------
-	s1 = "Hello";
-	set = NULL;
-	setup("NULL set");
-	actual = ft_strtrim(s1, set);
-	expected = NULL;
-	printf("s1 : \"%s\", set : %p\n", s1, (void *)set);
-	printf("expected : %p\nactual   : %p\n", (void *)expected, (void *)actual);
-	// no free for NULL
-
-	// ----------------------------
-	// Test 10: Trim internal characters
+	// Test 8: Trim internal characters
 	// ----------------------------
 	s1 = "a--b--c--a";
 	set = "a";
@@ -142,7 +119,7 @@ int main(void)
 	free(actual);
 
 	// ----------------------------
-	// Test 11: Only one char should stay
+	// Test 9: Only one char should stay
 	// ----------------------------
 	s1 = "-- a --";
 	set = "- ";
@@ -153,4 +130,28 @@ int main(void)
 	printf("expected : \"%s\"\nactual   : \"%s\"\n", expected, actual);
 	free(actual);
 	return 0;
+
+	// ----------------------------
+	// Test 10: NULL s1
+	// ----------------------------
+	s1 = NULL;
+	set = " ";
+	setup("NULL s1");
+	actual = ft_strtrim(s1, set);
+	expected = NULL;
+	printf("s1 : %p, set : \"%s\"\n", (void *)s1, set);
+	printf("expected : %p\nactual   : %p\n", (void *)expected, (void *)actual);
+	// no free for NULL
+
+	// ----------------------------
+	// Test 11: NULL set
+	// ----------------------------
+	s1 = "Hello";
+	set = NULL;
+	setup("NULL set");
+	actual = ft_strtrim(s1, set);
+	expected = NULL;
+	printf("s1 : \"%s\", set : %p\n", s1, (void *)set);
+	printf("expected : %p\nactual   : %p\n", (void *)expected, (void *)actual);
+	// no free for NULL
 }

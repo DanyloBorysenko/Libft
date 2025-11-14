@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:07:22 by danborys          #+#    #+#             */
-/*   Updated: 2025/11/11 15:47:40 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/14 11:36:06 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	s1_len;
 	size_t	s2_len;
-	char *ptr;
-	
+	char	*ptr;
+
 	if (!s1 || !s2)
 		return (NULL);
 	s1_len = ft_strlen(s1);
