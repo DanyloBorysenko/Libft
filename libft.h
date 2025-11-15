@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:19:00 by danyl             #+#    #+#             */
-/*   Updated: 2025/11/14 16:39:54 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/15 13:03:07 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,11 @@ void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew_bonus(void *content);
 void	ft_lstadd_front_bonus(t_list **lst, t_list *new);
 int		ft_lstsize_bonus(t_list *lst);
+t_list	*ft_lstlast_bonus(t_list *lst);
+void	ft_lstadd_back_bonus(t_list **lst, t_list *new);
+void	ft_lstdelone_bonus(t_list *lst, void (*del)(void*));
+void	ft_lstclear_bonus(t_list **lst, void (*del)(void*));
+void	ft_lstiter_bonus(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap_bonus(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
