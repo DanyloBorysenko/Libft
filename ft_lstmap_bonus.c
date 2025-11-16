@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 13:04:01 by danborys          #+#    #+#             */
-/*   Updated: 2025/11/15 13:56:58 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/16 10:59:33 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstmap_bonus(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*current;
 	t_list	*new_node;
 	void	*new_content;
-	
+
 	head = NULL;
 	current = lst;
 	while (current)
@@ -31,14 +31,10 @@ t_list	*ft_lstmap_bonus(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			return (NULL);
 		}
 		if (head == NULL)
-		{
 			head = new_node;
-		}
 		else
-		{
 			ft_lstadd_back_bonus(&head, new_node);
-		}
 		current = current->next;
 	}
-	return(head);
+	return (head);
 }

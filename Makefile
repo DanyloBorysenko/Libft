@@ -38,8 +38,9 @@ SRC = ft_isalnum.c \
 	  ft_putchar_fd.c \
 	  ft_putstr_fd.c \
 	  ft_putendl_fd.c \
-	  ft_putnbr_fd.c  \
-	  ft_lstnew_bonus.c \
+	  ft_putnbr_fd.c 
+
+BONUS_SRC = ft_lstnew_bonus.c \
 	  ft_lstadd_front_bonus.c \
 	  ft_lstsize_bonus.c \
 	  ft_lstlast_bonus.c \
@@ -50,17 +51,21 @@ SRC = ft_isalnum.c \
 	  ft_lstmap_bonus.c
 
 OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 
+bonus: $(NAME) $(BONUS_OBJ)
+	$(AR) $(ARFLAGS) $(NAME) $(BONUS_OBJ)
+
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
 	$(RM) $(NAME)

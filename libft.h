@@ -6,7 +6,7 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:19:00 by danyl             #+#    #+#             */
-/*   Updated: 2025/11/15 13:03:07 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/16 10:46:09 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
-	struct s_list 	*next;	
+	struct s_list	*next;	
 }					t_list;
 
 void	*ft_memset(void *ptr, int c, size_t n);
