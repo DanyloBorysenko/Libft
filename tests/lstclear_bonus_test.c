@@ -41,7 +41,7 @@ int	main(void)
 	printf("Current list of nodes is : ");
 	print_nodes(&node1);
 	printf("\n");
-	ft_lstclear_bonus(&node1, del);
+	ft_lstclear(&node1, del);
 
 	// Test 2
 	printf("\nTest 2\nCheck that pointer to the list is NULL\n");

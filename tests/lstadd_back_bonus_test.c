@@ -41,7 +41,7 @@ int	main(void)
 	printf("current list of nodes is : ");
 	print_nodes(nodes);
 	printf("\nAfter function call last node must be 'New'\n");
-	ft_lstadd_back_bonus(nodes, &n2);
+	ft_lstadd_back(nodes, &n2);
 	printf("current list of nodes is : ");
 	print_nodes(nodes);
 }

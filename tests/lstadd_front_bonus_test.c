@@ -40,7 +40,7 @@ int	main(void)
 	printf("current list of nodes is : ");
 	print_nodes(nodes);
 	printf("\nAfter function call first node must be 'New'\n");
-	ft_lstadd_front_bonus(nodes, &n2);
+	ft_lstadd_front(nodes, &n2);
 	printf("current list of nodes is : ");
 	print_nodes(nodes);
 }

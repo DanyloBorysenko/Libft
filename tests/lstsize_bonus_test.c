@@ -30,10 +30,10 @@ int	main(void)
 	setup("Normal case");
 	printf("current list's size is : 2\n");
 	printf("Expected : 2\n");
-	printf("Actual : %d\n", ft_lstsize_bonus(&n1));
+	printf("Actual : %d\n", ft_lstsize(&n1));
 
 	// Test 2
 	setup("Size of list is 0");
 	printf("Expected : 0\n");
-	printf("Actual : %d\n", ft_lstsize_bonus(NULL));
+	printf("Actual : %d\n", ft_lstsize(NULL));
 }

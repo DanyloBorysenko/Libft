@@ -17,5 +17,5 @@ int	main(void)
 
 	// Test 1
 	printf("Check that del function was used\n");
-	ft_lstdelone_bonus(node, del);	
+	ft_lstdelone(node, del);	
 }

@@ -67,7 +67,7 @@ int	main(void)
 	printf("Current nodes are : ");
 	print_nodes_str(&nodes);
 	printf("Returned list must contain '5' '3'\n");
-	t_list *new_lst = ft_lstmap_bonus(&n1, f, del);
+	t_list *new_lst = ft_lstmap(&n1, f, del);
 	printf("Returned list is : ");
 	print_nodes_int(&new_lst);
 

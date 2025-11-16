@@ -6,13 +6,13 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 16:41:14 by danborys          #+#    #+#             */
-/*   Updated: 2025/11/14 16:48:04 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/16 17:21:29 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize_bonus(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	t_list	*current;
 	int		count;

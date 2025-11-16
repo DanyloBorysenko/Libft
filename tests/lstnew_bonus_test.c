@@ -17,7 +17,7 @@ int	main(void)
 	// Test 1
 	setup("Normal case");
 	printf("expected content: 'Hello'\n");
-	result = ft_lstnew_bonus("Hello");
+	result = ft_lstnew("Hello");
 	printf("actual content: \'%s\'\n", (char *)result->content);
 	printf("next node must be NULL\n");
 	printf("next node is NULL ? : %d\n", result->next == NULL);
@@ -26,7 +26,7 @@ int	main(void)
 	setup("Normal case, content is int *ptr");
 	int i = 15;
 	printf("expected content: '15'\n");
-	result = ft_lstnew_bonus(&i);
+	result = ft_lstnew(&i);
 	printf("actual content: \'%d\'\n", *(int *)result->content);
 	printf("next node must be NULL\n");
 	printf("next node is NULL ? : %d\n", result->next == NULL);

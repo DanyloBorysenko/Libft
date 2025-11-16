@@ -22,7 +22,7 @@ int	main(void)
 	// Test 1
 	setup("size is 1");
 	printf("Expected : 'First'\n");
-	actual = ft_lstlast_bonus(&n1);
+	actual = ft_lstlast(&n1);
 	printf("Actual : '%s'\n", (char *)actual->content);
 
 	// Test 2
@@ -32,6 +32,6 @@ int	main(void)
 	n2.next = NULL;
 	n1.next = &n2;
 	printf("Expected : 'Second'\n");
-	actual = ft_lstlast_bonus(&n1);
+	actual = ft_lstlast(&n1);
 	printf("Actual : '%s'\n", (char *)actual->content);
 }

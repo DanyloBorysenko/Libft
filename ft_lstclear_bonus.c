@@ -6,13 +6,13 @@
 /*   By: danborys <borysenkodanyl@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 11:11:55 by danborys          #+#    #+#             */
-/*   Updated: 2025/11/15 12:04:41 by danborys         ###   ########.fr       */
+/*   Updated: 2025/11/16 17:20:26 by danborys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear_bonus(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*next_node;
 	t_list	*current;
@@ -23,7 +23,7 @@ void	ft_lstclear_bonus(t_list **lst, void (*del)(void*))
 	while (current)
 	{
 		next_node = current->next;
-		ft_lstdelone_bonus(current, del);
+		ft_lstdelone(current, del);
 		current = next_node;
 	}
 	*lst = NULL;

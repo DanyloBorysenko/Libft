@@ -39,6 +39,6 @@ int	main(void)
 	printf("Current list of nodes is : ");
 	print_nodes(&node1);
 	printf("\n");
-	ft_lstiter_bonus(node1, f);
+	ft_lstiter(node1, f);
 	print_nodes(&node1);
 }
