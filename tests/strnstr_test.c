@@ -29,7 +29,7 @@ int main(void)
 	setup("Empty needle");
 	result = ft_strnstr(haystack, "", 5);
 	printf("Expected: '%s'\n", haystack);
-	printf("Actual: %s\n", result);
+	printf("Actual: '%s'\n", result);
 
 	// Test 4: Needle would match but len too small
 	setup("Needle crosses len boundary");
@@ -46,8 +46,8 @@ int main(void)
 	// Test 6: Needle in the end
 	setup("Needle in the end");
 	result = ft_strnstr(haystack, "world", 19);
-	printf("Expected: \"%s\"\n", "world");
-	printf("Actual: %s\n", result ? result : "(null)");
+	printf("Expected: \"%s\"\n", "world!");
+	printf("Actual: \"%s\"\n", result ? result : "(null)");
 
 	return (0);
 }

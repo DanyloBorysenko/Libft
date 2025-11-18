@@ -50,8 +50,9 @@ int main(void)
 
 	// Test 3
 	setup("nmemb = SIZE_MAX");
+	size_t max = __SIZE_MAX__;
 	nmemb = 0;
 	size = 5;
-	printf("calloc result is NULL? : %d\n", calloc(__SIZE_MAX__, size) == NULL);
-	printf("ft_calloc result is NULL? : %d\n", ft_calloc(__SIZE_MAX__, size) == NULL);
+	printf("calloc result is NULL? : %d\n", calloc(max, size) == NULL);
+	printf("ft_calloc result is NULL? : %d\n", ft_calloc(max, size) == NULL);
 }

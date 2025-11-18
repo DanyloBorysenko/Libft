@@ -12,7 +12,7 @@ void setup(char *info)
 
 int	main(void)
 {
-	t_list *result;	
+	t_list *result;
 
 	// Test 1
 	setup("Normal case");
@@ -23,7 +23,7 @@ int	main(void)
 	printf("next node is NULL ? : %d\n", result->next == NULL);
 
 	// Test 2
-	setup("Normal case, content is int *ptr");
+	setup("Normal case, content is 15");
 	int i = 15;
 	printf("expected content: '15'\n");
 	result = ft_lstnew(&i);

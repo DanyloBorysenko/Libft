@@ -22,10 +22,6 @@ int	main(void)
 
 	n1.next = &n2;
 
-	t_list *nodes[2];
-	nodes[0] = &n1;
-	nodes[1] = &n2;
-
 	// Test 1
 	setup("Normal case");
 	printf("current list's size is : 2\n");
