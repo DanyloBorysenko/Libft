@@ -52,6 +52,22 @@ MY_BONUS_OBJ = $(BONUS_SRC:.c=)
 
 all: $(MY_OBJ)
 
+run: all
+	> results.txt
+	@for test in $(MY_OBJ) ; do \
+		echo "Running $$test:" >> results.txt; \
+		./$$test >> results.txt 2>&1; \
+		echo "" >> results.txt; \
+	done
+
+run_bonus: bonus
+	> results_bonus.txt
+	@for test in $(MY_OBJ) $(MY_BONUS_OBJ); do \
+		echo "Running $$test:" >> results_bonus.txt; \
+		./$$test >> results_bonus.txt 2>&1; \
+		echo "" >> results_bonus.txt; \
+	done
+
 %: %.c
 	$(CC) $(CFLAGS) $< -o $@ $(LFLAGS)
 
