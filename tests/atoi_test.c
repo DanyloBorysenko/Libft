@@ -1,102 +1,70 @@
 #include <stdio.h>
+#include <stdlib.h> // for atoi
 #include "libft.h"
 
-void setup(const char *info)
+void setup(const char *description)
 {
-	static int test_nmb;
+    static int test_nmb = 0;
 
-	test_nmb++;
-	printf("\nTest %d\n%s\n", test_nmb, info);
+    test_nmb++;
+    printf("\nTest %d: %s\n", test_nmb, description);
+}
+
+void check(const char *input)
+{
+    int expected = atoi(input);
+    int actual = ft_atoi(input);
+
+    if (expected == actual)
+        printf("OK\n");
+    else
+        printf("Input: \"%s\" → PROBLEM (expected %d, got %d)\n",
+               input, expected, actual);
 }
 
 int main(void)
 {
-	int	expected;
-	int	actual;
+    setup("Normal case");
+    check("1234");
 
-	// Test 1
-	setup("Normal case");
-	expected = atoi("1234");
-	actual = ft_atoi("1234");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is 0");
+    check("0");
 
-	// Test 2
-	setup("nptr is 0");
-	expected = atoi("0");
-	actual = ft_atoi("0");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is negative");
+    check("-1234");
 
-	// Test 3
-	setup("nptr is negative '-1234'");
-	expected = atoi("-1234");
-	actual = ft_atoi("-1234");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is positive");
+    check("1000");
 
-	// Test 4
-	setup("nptr is 1000");
-	expected = atoi("1000");
-	actual = ft_atoi("1000");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is empty string");
+    check("");
 
-	// Test 5
-	setup("nptr is empty");
-	expected = atoi("");
-	actual = ft_atoi("");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is non-numeric");
+    check("abc");
 
-	// Test 6
-	setup("nptr is 'abc'");
-	expected = atoi("abc");
-	actual = ft_atoi("abc");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is '--123'");
+    check("--123");
 
-	// Test 7
-	setup("nptr is '--123");
-	expected = atoi("--123");
-	actual = ft_atoi("--123");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is '-+123'");
+    check("-+123");
 
-	// Test 8
-	setup("nptr is '-+123");
-	expected = atoi("-+123");
-	actual = ft_atoi("-+123");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is '+123'");
+    check("+123");
 
-	// Test 9
-	setup("nptr is '+123");
-	expected = atoi("+123");
-	actual = ft_atoi("+123");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr is '++123'");
+    check("++123");
 
-	// Test 10
-	setup("nptr is '++123");
-	expected = atoi("++123");
-	actual = ft_atoi("++123");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr contains 1 space");
+    check(" 123");
 
-	// Test 11
-	setup("nptr contains space ' 123'");
-	expected = atoi(" 123");
-	actual = ft_atoi(" 123");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr contains 2 spaces");
+    check("  123");
 
-	// Test 12
-	setup("nptr contains two spaces '  123'");
-	expected = atoi("  123");
-	actual = ft_atoi("  123");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("nptr contains non-printable characters");
+    check("\t123");
 
-	// Test 13
-	setup("nptr contains non printable chars");
-	expected = atoi("\t123");
-	actual = ft_atoi("\t123");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
+    setup("space after sign (undefined behavior)");
+    check("- 123");   // This should be "-␣123"
 
-	// Test 14
-	setup("space after sign");
-	expected = atoi("- 123");
-	actual = ft_atoi("- t123");
-	printf("atoi returns : %d\nft_atoi returns : %d\n", expected, actual);
-
-	return (0);
+    return (0);
 }

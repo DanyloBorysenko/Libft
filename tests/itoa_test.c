@@ -1,59 +1,56 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "libft.h"
 
-void setup(char *info)
+void setup(const char *info)
 {
-	static int test_nmb;
+    static int test_nmb;
+    test_nmb++;
 
-	test_nmb++;
-	printf("\nTest %d\n", test_nmb);
-	printf("%s\n", info);
+    printf("\nTest %d: %s\n", test_nmb, info);
 }
 
-int	main(void)
+void check(int nbr, const char *expected)
 {
-	int nbr;
+    char *actual = ft_itoa(nbr);
 
-	// Test 1
-	setup("number is 5");
-	nbr = 5;
-	printf("Expected value is 5\n");
-	printf("Actual value is %s\n", ft_itoa(nbr));
+    if (!actual)
+    {
+        printf("PROBLEM: ft_itoa returned NULL\n");
+        return;
+    }
 
-	// Test 2
-	setup("number is 0");
-	nbr = 0;
-	printf("Expected value is 0\n");
-	printf("Actual value is %s\n", ft_itoa(nbr));
+    if (strcmp(actual, expected) == 0)
+        printf("OK\n");
+    else
+        printf("PROBLEM (expected \"%s\", got \"%s\")\n", expected, actual);
 
-	// Test 3
-	setup("number is -5");
-	nbr = -5;
-	printf("Expected value is -5\n");
-	printf("Actual value is %s\n", ft_itoa(nbr));
+    free(actual);
+}
 
-	// Test 4
-	setup("number is 12345");
-	nbr = 12345;
-	printf("Expected value is 12345\n");
-	printf("Actual value is %s\n", ft_itoa(nbr));
+int main(void)
+{
+    setup("number is 5");
+    check(5, "5");
 
-	// Test 5
-	setup("number is -12345");
-	nbr = -12345;
-	printf("Expected value is -12345\n");
-	printf("Actual value is %s\n", ft_itoa(nbr));
+    setup("number is 0");
+    check(0, "0");
 
-	// Test 6
-	setup("number is INT_MAX (2147483647)");
-	nbr = 2147483647;
-	printf("Expected value is 2147483647\n");
-	printf("Actual value is %s\n", ft_itoa(nbr));
+    setup("number is -5");
+    check(-5, "-5");
 
-	// Test 7
-	setup("number is INT_MIN (-2147483648)");
-	nbr = -2147483648;
-	printf("Expected value is -2147483648\n");
-	printf("Actual value is %s\n", ft_itoa(nbr));
+    setup("number is 12345");
+    check(12345, "12345");
+
+    setup("number is -12345");
+    check(-12345, "-12345");
+
+    setup("number is INT_MAX");
+    check(INT_MAX, "2147483647");
+
+    setup("number is INT_MIN");
+    check(INT_MIN, "-2147483648");
+
+    return 0;
 }

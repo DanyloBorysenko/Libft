@@ -26,7 +26,7 @@ int main(void)
 			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
 		}
 	}
-	printf("Uppercase letters check compited\n");
+	printf("Uppercase letters check completed\n");
 
 	// Test 2
 	setup("Lowercase letters a-z (should stay unchanged)");
@@ -39,7 +39,7 @@ int main(void)
 			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
 		}
 	}
-	printf("Lowercase letters check compited\n");
+	printf("Lowercase letters check completed\n");
 
 	// Test 3
 	setup("Digits 0-9 (should stay unchanged)");
@@ -52,7 +52,7 @@ int main(void)
 			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
 		}
 	}
-	printf("Digits letters check compited\n");
+	printf("Digits letters check completed\n");
 
 	// Test 4
 	setup("Non-printable characters 0-31 (should stay unchanged)");
@@ -65,7 +65,7 @@ int main(void)
 			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
 		}
 	}
-	printf("Non-printable characters check compited\n");
+	printf("Non-printable characters check completed\n");
 
 	// Test 5
 	setup("Punctuation characters");
@@ -80,7 +80,7 @@ int main(void)
 			printf("char '%c', tolower = %c, ft_tolower = %c\n", c, expected, actual);
 		}
 	}
-	printf("Punctuation characters check compited\n");
+	printf("Punctuation characters check completed\n");
 
 	return (0);
 }
