@@ -1,32 +1,40 @@
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
-void setup(char *info)
+static int test_nmb = 0;
+
+void setup(const char *info)
 {
-	static int test_nmb;
-
-	test_nmb++;
-	printf("\nTest %d\n", test_nmb);
-	printf("%s\n", info);
+    test_nmb++;
+    printf("\nTest %d: %s -> ", test_nmb, info);
 }
 
-int	main(void)
+int check_strlen(size_t expected, size_t actual)
 {
-	// Test 1
-	setup("Correct result");
-	char str[] = "Hello";
-	printf("strlen func result : %zu\n", strlen(str));
-	printf("ft_strlen func result : %zu\n", ft_strlen(str));
+    if (expected == actual)
+    {
+        printf("OK\n");
+        return 1;
+    }
+    printf("PROBLEM: expected %zu , actual %zu\n", expected, actual);
+    return 0;
+}
 
-	// Test 2
-	setup("argument is empty");
-	char str1[] = "";
-	printf("strlen func result : %zu\n", strlen(str1));
-	printf("ft_strlen func result : %zu\n", ft_strlen(str1));
+int main(void)
+{
+    // Test 1: Normal string
+    setup("Normal string");
+    char str[] = "Hello";
+    check_strlen(strlen(str), ft_strlen(str));
 
-	// Test 3
-	setup("special chars");
-	char str2[] = "hello \t";
-	printf("strlen func result : %zu\n", strlen(str2));
-	printf("ft_strlen func result : %zu\n", ft_strlen(str2));
+    // Test 2: Empty string
+    setup("Empty string");
+    char str1[] = "";
+    check_strlen(strlen(str1), ft_strlen(str1));
+
+    // Test 3: String with special characters
+    setup("String with special characters");
+    char str2[] = "hello \t";
+    check_strlen(strlen(str2), ft_strlen(str2));
 }

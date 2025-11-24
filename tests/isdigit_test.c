@@ -2,11 +2,12 @@
 #include <ctype.h>
 #include "libft.h"
 
+static int test_nmb = 0;
+
 void setup(const char *info)
 {
-    static int test_nmb;
     test_nmb++;
-    printf("\nTest %d\n%s\n", test_nmb, info);
+    printf("\nTest %d: %s\n", test_nmb, info);
 }
 
 int main(void)
@@ -14,57 +15,30 @@ int main(void)
     int expected;
     int actual;
 
-    // Test 1: Digits 0-9
-    setup("Digits 0-9");
-    for (char c = '0'; c <= '9'; c++)
+    int test_values[] = {
+        '0','1','2','3','4','5','6','7','8','9', // digits
+        'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', // uppercase
+        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', // lowercase
+        0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31, // non-printable
+        '!','@','#','$','%','^','&','*','(',')','_','+','-','=','[',']','{','}','|',';',':','\'',',','.','<','>','/','?','`','~','\"','\\',
+        127 // DEL
+    };
+
+    const char *desc = "Check ft_isdigit against isdigit";
+
+    setup(desc);
+
+    for (size_t i = 0; i < sizeof(test_values)/sizeof(test_values[0]); i++)
     {
-        expected = isdigit(c);
-        actual   = ft_isdigit(c);
-        printf("char '%c': isdigit = %d, ft_isdigit = %d\n", c, expected, actual);
+        expected = isdigit(test_values[i]) ? 1 : 0;
+        actual   = ft_isdigit(test_values[i]);
+        if (expected != actual)
+            printf("PROBLEM: value %d ('%c'): isdigit = %d, ft_isdigit = %d\n",
+                   test_values[i], (test_values[i] >= 32 && test_values[i] <= 126) ? test_values[i] : '?',
+                   expected, actual);
     }
 
-    // Test 2: Uppercase letters
-    setup("Uppercase letters A-Z");
-    for (char c = 'A'; c <= 'Z'; c++)
-    {
-        expected = isdigit(c);
-        actual   = ft_isdigit(c);
-        printf("char '%c': isdigit = %d, ft_isdigit = %d\n", c, expected, actual);
-    }
-
-    // Test 3: Lowercase letters
-    setup("Lowercase letters a-z");
-    for (char c = 'a'; c <= 'z'; c++)
-    {
-        expected = isdigit(c);
-        actual   = ft_isdigit(c);
-        printf("char '%c': isdigit = %d, ft_isdigit = %d\n", c, expected, actual);
-    }
-
-    // Test 4: Punctuation
-    setup("Punctuation characters");
-    char punct[] = "!@#$%^&*()_+-=[]{}|;:',.<>/?`~\"\\";
-    for (int i = 0; punct[i]; i++)
-    {
-        expected = isdigit(punct[i]);
-        actual   = ft_isdigit(punct[i]);
-        printf("char '%c': isdigit = %d, ft_isdigit = %d\n", punct[i], expected, actual);
-    }
-
-    // Test 5: Non-printable characters
-    setup("Non-printable ASCII 0-31");
-    for (int c = 0; c <= 31; c++)
-    {
-        expected = isdigit(c);
-        actual   = ft_isdigit(c);
-        printf("ASCII %d: isdigit = %d, ft_isdigit = %d\n", c, expected, actual);
-    }
-
-    // Test 6: DEL character
-    setup("DEL character (ASCII 127)");
-    expected = isdigit(127);
-    actual   = ft_isdigit(127);
-    printf("ASCII 127: isdigit = %d, ft_isdigit = %d\n", expected, actual);
+    printf("All other cases OK\n");
 
     return 0;
 }

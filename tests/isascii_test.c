@@ -2,59 +2,41 @@
 #include <ctype.h>
 #include "libft.h"
 
+static int test_nmb = 0;
+
 void setup(const char *info)
 {
-	static int test_nmb;
-	test_nmb++;
-	printf("\nTest %d\n%s\n", test_nmb, info);
+    test_nmb++;
+    printf("\nTest %d: %s\n", test_nmb, info);
 }
 
 int main(void)
 {
-	int expected;
-	int actual;
+    int expected;
+    int actual;
+    int failed;
 
-	// Test 1
-	setup("Lower bound (0)");
-	expected = isascii(0);
-	actual = ft_isascii(0);
-	printf("isascii returns : %d\n", expected);
-	printf("ft_isascii returns : %d\n", actual);
+    int test_values[] = {0, 127, 'A', 128, -1, 64};
+    const char *descriptions[] = {
+        "Lower bound (0)",
+        "Upper bound (127)",
+        "Middle of ASCII range ('A')",
+        "Non-ASCII positive value (128)",
+        "Negative value (-1)",
+        "Random value in range (64)"
+    };
 
-	// Test 2
-	setup("Upper bound (127)");
-	expected = isascii(127);
-	actual = ft_isascii(127);
-	printf("isascii returns : %d\n", expected);
-	printf("ft_isascii returns : %d\n", actual);
+    for (int i = 0; i < 6; i++)
+    {
+        setup(descriptions[i]);
+        failed = 0;
+        expected = isascii(test_values[i]) ? 1 : 0;
+        actual   = ft_isascii(test_values[i]);
+        if (expected != actual)
+            printf("PROBLEM: value %d: isascii = %d, ft_isascii = %d\n", test_values[i], expected, actual);
+        else
+            printf("OK\n");
+    }
 
-	// Test 3
-	setup("Middle of ASCII range ('A')");
-	expected = isascii('A');
-	actual = ft_isascii('A');
-	printf("isascii returns : %d\n", expected);
-	printf("ft_isascii returns : %d\n", actual);
-
-	// Test 4
-	setup("Non-ASCII positive value (128)");
-	expected = isascii(128);
-	actual = ft_isascii(128);
-	printf("isascii returns : %d\n", expected);
-	printf("ft_isascii returns : %d\n", actual);
-
-	// Test 5
-	setup("Negative value (-1)");
-	expected = isascii(-1);
-	actual = ft_isascii(-1);
-	printf("isascii returns : %d\n", expected);
-	printf("ft_isascii returns : %d\n", actual);
-
-	// Test 6
-	setup("Random value in range (64)");
-	expected = isascii(64);
-	actual = ft_isascii(64);
-	printf("isascii returns : %d\n", expected);
-	printf("ft_isascii returns : %d\n", actual);
-
-	return (0);
+    return 0;
 }

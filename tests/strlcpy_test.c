@@ -1,115 +1,102 @@
 
+#include "libft.h"
+#include <stdio.h>
 #include <strings.h>
 #include <string.h>
 #include <bsd/string.h>
-#include <stdio.h>
-#include "libft.h"
+
+static int test_nmb = 0;
 
 void setup(const char *info)
 {
-    static int test_nmb;
     test_nmb++;
-    printf("\nTest %d\n%s\n", test_nmb, info);
+    printf("\nTest %d: %s -> ", test_nmb, info);
 }
 
-void print_dest(char *dest)
+int check_size(size_t expected, size_t actual)
 {
-	for (size_t i = 0; i < 20; i++)
-	{
-		if (dest[i] == '\0')
-		{
-			printf("\\0");
-		}
-		else
-		{
-			printf("%c", dest[i]);
-		}
-	}
+    if (expected == actual)
+    {
+        printf("OK\n");
+        return 1;
+    }
+    printf("PROBLEM: expected %zu , actual %zu\n", expected, actual);
+    return 0;
+}
+
+int check_dest(char *expected, char *actual)
+{
+    if (strcmp(expected, actual) == 0)
+    {
+        printf("OK\n");
+        return 1;
+    }
+    printf("PROBLEM: expected \"%s\" , actual \"%s\"\n", expected, actual);
+    return 0;
 }
 
 int main(void)
 {
-	char dst[20];
-	const char *src = "hello";
-	size_t size = 6;
+    char dst[20];
+    char dst2[20];
+    const char *src = "hello";
+    size_t size;
 
-	// Test 1
-	setup("Normal case");
-	bzero(dst, 20);
-	strlcpy(dst, src, size);
-	printf("after strlcpy dst is: %s\n", dst);
-	bzero(dst, 20);
-	ft_strlcpy(dst, src, size);
-	printf("after ft_strlcpy dst is: %s\n", dst);
-	bzero(dst, 20);
+    // Test 1: Normal copy
+    setup("Normal copy result");
+    bzero(dst, 20);
+    bzero(dst2, 20);
+    strlcpy(dst, src, 6);
+    ft_strlcpy(dst2, src, 6);
+    check_dest(dst, dst2);
 
-	// Test 2
-	setup("Normal case, check returned value");
-	bzero(dst, 20);
-	printf("strlcpy returns: %zu\n", strlcpy(dst, src, size));
-	bzero(dst, 20);
-	printf("ft_strlcpy returns: %zu\n", ft_strlcpy(dst, src, size));
+    // Test 2: Check returned value
+    setup("Returned value normal");
+    bzero(dst, 20);
+    bzero(dst2, 20);
+    check_size(strlcpy(dst, src, 6), ft_strlcpy(dst2, src, 6));
 
-	// Test 3
-	setup("size is less than src");
-	size = 2;
-	bzero(dst, 20);
-	printf("dest: %s, src: %s, size :%zu\n", dst, src, size);
-	printf("strlcpy returns: %zu\n", strlcpy(dst, src, size));
-	printf("after strlcpy dst is: %s\n", dst);
-	bzero(dst, 20);
-	printf("ft_strlcpy returns: %zu\n", ft_strlcpy(dst, src, size));
-	printf("after ft_strlcpy dst is: %s\n", dst);
+    // Test 3: size < src length
+    setup("Size less than src");
+    bzero(dst, 20);
+    bzero(dst2, 20);
+    size = 2;
+    check_size(strlcpy(dst, src, size), ft_strlcpy(dst2, src, size));
+    check_dest(dst, dst2);
 
-	// Test 4
-	setup("size is too big");
-	size = 10;
-	bzero(dst, 20);
-	printf("dest: %s, src: %s, size :%zu\n", dst, src, size);
-	printf("strlcpy returns: %zu\n", strlcpy(dst, src, size));
-	printf("after strlcpy dst is: %s\n", dst);
-	bzero(dst, 20);
-	printf("ft_strlcpy returns: %zu\n", ft_strlcpy(dst, src, size));
-	printf("after ft_strlcpy dst is: %s\n", dst);
+    // Test 4: size > src length
+    setup("Size bigger than src");
+    bzero(dst, 20);
+    bzero(dst2, 20);
+    size = 10;
+    check_size(strlcpy(dst, src, size), ft_strlcpy(dst2, src, size));
+    check_dest(dst, dst2);
 
-	// Test 5
-	setup("size = 0");
-	size = 0;
-	bzero(dst, 20);
-	printf("dest: %s, src: %s, size :%zu\n", dst, src, size);
-	printf("strlcpy returns: %zu\n", strlcpy(dst, src, size));
-	printf("after strlcpy dst is: %s\n", dst);
-	bzero(dst, 20);
-	printf("ft_strlcpy returns: %zu\n", ft_strlcpy(dst, src, size));
-	printf("after ft_strlcpy dst is: %s\n", dst);
+    // Test 5: size = 0
+    setup("Size = 0");
+    bzero(dst, 20);
+    bzero(dst2, 20);
+    size = 0;
+    check_size(strlcpy(dst, src, size), ft_strlcpy(dst2, src, size));
+    check_dest(dst, dst2);
 
-	// Test 6
-	setup("src is ''");
-	size = 6;
-	const char *src1 = "";
-	bzero(dst, 20);
-	printf("dest: %s, src: %s, size :%zu\n", dst, src1, size);
-	printf("strlcpy returns: %zu\n", strlcpy(dst, src1, size));
-	printf("after strlcpy dst is: %s\n", dst);
-	bzero(dst, 20);
-	printf("ft_strlcpy returns: %zu\n", ft_strlcpy(dst, src1, size));
-	printf("after ft_strlcpy dst is: %s\n", dst);
+    // Test 6: src is empty
+    setup("Source empty");
+    bzero(dst, 20);
+    bzero(dst2, 20);
+    size = 6;
+    const char *src1 = "";
+    check_size(strlcpy(dst, src1, size), ft_strlcpy(dst2, src1, size));
+    check_dest(dst, dst2);
 
-	// Test 7
-	setup("Check that last char is \\0");
-	bzero(dst, 20);
-	dst[5] = '*';
-	printf("dest is: \n");
-	print_dest(dst);
-	printf("\n");
-	printf("strlcpy returns: %zu\n", strlcpy(dst, src, size));
-	printf("after strlcpy dst is:\n");
-	print_dest(dst);
-	printf("\n");
-	bzero(dst, 20);
-	dst[5] = '*';
-	printf("ft_strlcpy returns: %zu\n", ft_strlcpy(dst, src, size));
-	printf("after ft_strlcpy dst is:\n");
-	print_dest(dst);
-	printf("\n");
+    // Test 7: last character is \\0
+    setup("Check last char is \\0");
+    bzero(dst, 20);
+    bzero(dst2, 20);
+    dst[5] = '*';
+    dst2[5] = '*';
+    size = 6;
+    strlcpy(dst, src, size);
+    ft_strlcpy(dst2, src, size);
+    check_dest(dst, dst2);
 }

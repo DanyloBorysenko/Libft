@@ -1,54 +1,67 @@
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
-void setup(char *info)
+static int test_nmb = 0;
+
+void setup(const char *info)
 {
-	static int test_nmb;
-
-	test_nmb++;
-	printf("\nTest %d\n", test_nmb);
-	printf("%s\n", info);
+    test_nmb++;
+    printf("\nTest %d: %s -> ", test_nmb, info);
 }
 
-void	toupper_char(unsigned int i, char *c)
+void toupper_char(unsigned int i, char *c)
 {
-	if (i % 2 == 0 && *c >= 'a' && *c <= 'z')
-	{
-		*c = *c - 32;
-	}
+    if (!c) return;
+    if (i % 2 == 0 && *c >= 'a' && *c <= 'z')
+        *c = *c - 32;
 }
 
-int	main(void)
+int check_str(const char *expected, const char *actual)
 {
-	char s[] = "Hello world";
+    if ((expected == NULL && actual == NULL) ||
+        (expected && actual && strcmp(expected, actual) == 0))
+    {
+        printf("OK\n");
+        return 1;
+    }
+    printf("PROBLEM: expected '%s', actual '%s'\n",
+           expected ? expected : "(null)",
+           actual ? actual : "(null)");
+    return 0;
+}
 
-	// Test 1
-	setup("s = 'Hello world', *f is NULL");
-	printf("ft_striteri function must do nothing, NO ERRORS\n");
-	ft_striteri(s, NULL);
+int main(void)
+{
+    char s1[50] = "Hello world";
+    char s2[50] = "";
+    char s3[50] = "Hello world";
+    char s4[2]  = "a";
 
-	// Test 2
-	char s1[] = "";
-	setup("s = ''. ft_striteri function must do nothing");
-	ft_striteri(s1, toupper_char);
-	printf("after ft_striteri s = \'%s\'\n", s1);
+    // Test 1: normal string
+    setup("s = 'Hello world'");
+    ft_striteri(s3, toupper_char);
+    check_str("HeLlO WoRlD", s3);
 
-	// Test 3
-	char s3[] = "Hello world";
-	setup("s = 'Hello world'");
-	printf("expected : 'HeLlO WoRlD'\n");
-	ft_striteri(s3, toupper_char);
-	printf("actual : \'%s\'\n", s3);
+    // Test 2: single character
+    setup("s = 'a'");
+    ft_striteri(s4, toupper_char);
+    check_str("A", s4);
 
-	// Test 4
-	setup("s = 'a'");
-	char s2[] = "a";
-	ft_striteri(s2, toupper_char);
-	printf("expected : 'A'");
-	printf("actual : \'%s\'\n", s2);
+    // Test 3: empty string
+    setup("s = ''");
+    ft_striteri(s2, toupper_char);
+    check_str("", s2);
 
-	// Test 5
-	setup("s = NULL");
-	printf("ft_striteri function must do nothing, NO ERRORS\n");
-	ft_striteri(NULL, toupper_char);
+    // Test 4: f is NULL
+    setup("s = 'Hello world', f is NULL");
+    ft_striteri(s1, NULL);
+    check_str("Hello world", s1);
+
+    // Test 5: s = NULL
+    setup("s = NULL");
+    ft_striteri(NULL, toupper_char);
+    printf("OK (no crash)\n");
+
+    return 0;
 }
